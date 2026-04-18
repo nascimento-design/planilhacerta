@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planilha Certa – E-books de Excel para Organizar sua Vida e seu Negócio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde-escuro: #0d3d2b;
+    --verde-medio: #1a5c3e;
+    --verde-claro: #25a35a;
+    --verde-brilho: #2ecc71;
+    --amarelo: #f5c518;
+    --branco: #f9faf7;
+    --cinza-claro: #edf2ed;
+    --texto: #1a1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--branco);
+    color: var(--texto);
+    overflow-x: hidden;
+  }
+
+  /* ====== TOPBAR ====== */
+  .topbar {
+    background: var(--verde-escuro);
+    color: var(--amarelo);
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* ====== NAV ====== */
+  nav {
+    background: var(--verde-medio);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+
+  .logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--amarelo); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+  }
+
+  nav ul a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--amarelo); }
+
+  .nav-cta {
+    background: var(--amarelo);
+    color: var(--verde-escuro) !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+  }
+
+  .nav-cta:hover { background: #e0b000; color: #fff !important; }
+
+  /* ====== HERO ====== */
+  .hero {
+    background: linear-gradient(135deg, var(--verde-escuro) 0%, var(--verde-medio) 60%, #1e7a4a 100%);
+    color: #fff;
+    padding: 80px 5% 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(46,204,113,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--amarelo);
+    color: var(--verde-escuro);
+    font-size: 0.78rem;
+    font-weight: 900;
+    padding: 5px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.4rem;
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--verde-brilho);
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--amarelo);
+    color: var(--verde-escuro);
+    padding: 15px 32px;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(245,197,24,0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(245,197,24,0.6);
+  }
+
+  .btn-secondary {
+    border: 2px solid rgba(255,255,255,0.5);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .book-thumb {
+    background: var(--verde-escuro);
+    border-radius: 8px;
+    aspect-ratio: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 6px;
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    line-height: 1.3;
+  }
+
+  .book-thumb::before {
+    content: '✕';
+    position: absolute;
+    top: 6px; left: 6px;
+    font-size: 0.9rem;
+    color: var(--verde-claro);
+    font-style: normal;
+  }
+
+  .book-thumb.featured {
+    border: 2px solid var(--amarelo);
+  }
+
+  .badge-amazon {
+    background: #ff9900;
+    color: #000;
+    font-size: 0.6rem;
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 6px; left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  /* ====== NUMBERS ====== */
+  .numbers {
+    background: var(--amarelo);
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 28px 5%;
+    flex-wrap: wrap;
+  }
+
+  .number-item {
+    text-align: center;
+  }
+
+  .number-item strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--verde-escuro);
+    display: block;
+  }
+
+  .number-item span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--verde-medio);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ====== ISCA ====== */
+  .isca {
+    background: var(--cinza-claro);
+    padding: 70px 5%;
+    text-align: center;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--verde-claro);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--verde-escuro);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .section-sub {
+    color: #555;
+    font-size: 1rem;
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  .isca-cards {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .isca-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 32px 28px;
+    max-width: 320px;
+    text-align: left;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--verde-claro);
+    transition: transform 0.2s;
+  }
+
+  .isca-card:hover { transform: translateY(-4px); }
+
+  .isca-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+  }
+
+  .isca-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--verde-escuro);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .isca-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .isca-items {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .isca-items li {
+    font-size: 0.88rem;
+    padding: 5px 0;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .isca-items li::before {
+    content: '✓';
+    color: var(--verde-claro);
+    font-weight: 900;
+    font-size: 0.9rem;
+  }
+
+  .btn-isca {
+    display: block;
+    background: var(--verde-escuro);
+    color: #fff;
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .btn-isca:hover { background: var(--verde-claro); }
+
+  /* ====== MODAL ====== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 36px;
+    max-width: 440px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 14px; right: 18px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #999;
+    background: none;
+    border: none;
+  }
+
+  .modal h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--verde-escuro);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .modal p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  .modal p span {
+    font-weight: 700;
+    color: var(--verde-claro);
+  }
+
+  .modal input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .modal input:focus {
+    outline: none;
+    border-color: var(--verde-claro);
+  }
+
+  .modal button[type="submit"] {
+    width: 100%;
+    background: var(--verde-escuro);
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+  }
+
+  .modal button[type="submit"]:hover { background: var(--verde-claro); }
+
+  .modal-note {
+    font-size: 0.75rem;
+    color: #aaa;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .modal-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .modal-success .check {
+    font-size: 3rem;
+    margin-bottom: 12px;
+  }
+
+  .modal-success h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    color: var(--verde-escuro);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .modal-success p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* ====== EBOOKS ====== */
+  .ebooks {
+    padding: 80px 5%;
+    background: #fff;
+  }
+
+  .ebooks-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .ebooks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .ebook-card {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #eee;
+  }
+
+  .ebook-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 36px rgba(0,0,0,0.14);
+  }
+
+  .ebook-cover {
+    background: linear-gradient(145deg, var(--verde-escuro), var(--verde-medio));
+    padding: 28px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    min-height: 180px;
+  }
+
+  .ebook-cover-icon {
+    font-size: 3rem;
+  }
+
+  .ebook-cover-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .ebook-cover-sub {
+    font-size: 0.78rem;
+    color: var(--verde-brilho);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .badge-disponivel {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: #ff9900;
+    color: #000;
+    font-size: 0.62rem;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .badge-breve {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .ebook-body {
+    padding: 22px 22px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ebook-nivel {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--verde-claro);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .ebook-desc {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    flex: 1;
+  }
+
+  .ebook-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .ebook-price .currency {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--verde-escuro);
+  }
+
+  .ebook-price .amount {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--verde-escuro);
+    line-height: 1;
+  }
+
+  .ebook-price .period {
+    font-size: 0.78rem;
+    color: #999;
+  }
+
+  .btn-ebook {
+    display: block;
+    text-align: center;
+    background: var(--verde-claro);
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-ebook:hover { background: var(--verde-medio); }
+
+  .btn-ebook.disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* ====== AUTOR ====== */
+  .autor {
+    background: var(--verde-escuro);
+    color: #fff;
+    padding: 70px 5%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 0;
+  }
+
+  .autor-wrapper {
+    background: var(--verde-escuro);
+    padding: 70px 5%;
+  }
+
+  .autor-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--verde-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    flex-shrink: 0;
+    border: 4px solid var(--amarelo);
+  }
+
+  .autor-content .section-label { color: var(--amarelo); }
+
+  .autor-content h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .autor-content p {
+    color: rgba(255,255,255,0.82);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  /* ====== DEPOIMENTOS ====== */
+  .depoimentos {
+    padding: 70px 5%;
+    background: var(--cinza-claro);
+    text-align: center;
+  }
+
+  .depo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    max-width: 860px;
+    margin: 40px auto 0;
+  }
+
+  .depo-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 22px;
+    text-align: left;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .stars {
+    color: var(--amarelo);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+
+  .depo-card p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.65;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .depo-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--verde-escuro);
+  }
+
+  .depo-cargo {
+    font-size: 0.78rem;
+    color: #999;
+  }
+
+  /* ====== FAQ ====== */
+  .faq {
+    padding: 70px 5%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+  }
+
+  .faq-question {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--verde-escuro);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.3rem;
+    color: var(--verde-claro);
+  }
+
+  .faq-item.open .faq-question::after { content: '−'; }
+
+  .faq-answer {
+    display: none;
+    font-size: 0.92rem;
+    color: #666;
+    line-height: 1.7;
+    padding-top: 12px;
+  }
+
+  .faq-item.open .faq-answer { display: block; }
+
+  /* ====== CTA FINAL ====== */
+  .cta-final {
+    background: linear-gradient(135deg, var(--verde-claro), var(--verde-medio));
+    padding: 70px 5%;
+    text-align: center;
+    color: #fff;
+  }
+
+  .cta-final h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .cta-final p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ====== FOOTER ====== */
+  footer {
+    background: #0a2a1e;
+    color: rgba(255,255,255,0.6);
+    padding: 36px 5%;
+    text-align: center;
+    font-size: 0.83rem;
+    line-height: 1.8;
+  }
+
+  footer a { color: var(--verde-brilho); text-decoration: none; }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 50px 5% 40px;
+    }
+
+    .hero h1 { font-size: 2.5rem; }
+
+    .hero-btns { justify-content: center; }
+
+    .hero-visual { display: none; }
+
+    .numbers { gap: 30px; }
+
+    nav ul { display: none; }
+
+    .autor {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .autor-avatar { margin: 0 auto; }
+  }
+
+  /* Animações */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content { animation: fadeUp 0.6s ease both; }
+  .hero-visual { animation: fadeUp 0.6s ease 0.2s both; }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  📥 Baixe sua planilha gratuita agora — sem cartão, sem compromisso
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Planilha<span>Certa</span></a>
+  <ul>
+    <li><a href="#gratuito">Grátis</a></li>
+    <li><a href="#ebooks">E-books</a></li>
+    <li><a href="#autor">Autor</a></li>
+    <li><a href="#gratuito" class="nav-cta">Baixar Grátis</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">📊 Excel na prática</span>
+    <h1>Organize sua vida e seu negócio com <em>Excel de verdade</em></h1>
+    <p>E-books práticos e planilhas prontas para iniciantes, vendedores, MEI e quem quer resultados sem complicação.</p>
+    <div class="hero-btns">
+      <a href="#gratuito" class="btn-primary">📥 Baixar Planilha Grátis</a>
+      <a href="#ebooks" class="btn-secondary">Ver E-books</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="books-grid">
+      <div class="book-thumb featured">
+        Excel para Iniciantes
+        <span class="badge-amazon">Amazon</span>
+      </div>
+      <div class="book-thumb featured">
+        Controle de Estoque
+        <span class="badge-amazon">Amazon</span>
+      </div>
+      <div class="book-thumb">Dashboards Profissionais</div>
+      <div class="book-thumb">Controle de Vendas</div>
+      <div class="book-thumb">Financeiro Pessoal</div>
+      <div class="book-thumb">Excel para MEI</div>
+    </div>
+    <p style="font-size:0.78rem; color:rgba(255,255,255,0.5); text-align:center;">6 e-books disponíveis · 2 na Amazon</p>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="numbers">
+  <div class="number-item">
+    <strong>6</strong>
+    <span>E-books publicados</span>
+  </div>
+  <div class="number-item">
+    <strong>2</strong>
+    <span>Disponíveis na Amazon</span>
+  </div>
+  <div class="number-item">
+    <strong>2</strong>
+    <span>Planilhas gratuitas</span>
+  </div>
+  <div class="number-item">
+    <strong>100%</strong>
+    <span>Prático e em português</span>
+  </div>
+</div>
+
+<!-- ISCA DIGITAL -->
+<section class="isca" id="gratuito">
+  <span class="section-label">🎁 Presente para você</span>
+  <h2 class="section-title">Comece agora — de graça</h2>
+  <p class="section-sub">Escolha uma das planilhas prontas, baixe agora mesmo e já comece a organizar sua vida financeira ou seus resultados de vendas hoje.</p>
+
+  <div class="isca-cards">
+    <!-- Card 1 -->
+    <div class="isca-card">
+      <div class="isca-icon">💰</div>
+      <h3>Controle Financeiro Mensal</h3>
+      <p>Planilha simples e funcional para registrar receitas, despesas e visualizar quanto sobra no mês.</p>
+      <ul class="isca-items">
+        <li>Registro de receitas e gastos</li>
+        <li>Saldo automático por categoria</li>
+        <li>Fácil de usar — sem fórmulas manuais</li>
+        <li>Ideal para quem está começando</li>
+      </ul>
+      <a href="#" class="btn-isca" onclick="abrirModal('financeiro'); return false;">📥 Baixar Grátis</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="isca-card">
+      <div class="isca-icon">📈</div>
+      <h3>Controle de Vendas</h3>
+      <p>Planilha para registrar vendas diárias, acompanhar metas e calcular comissões de forma automática.</p>
+      <ul class="isca-items">
+        <li>Registro de vendas por dia/produto</li>
+        <li>Cálculo automático de comissões</li>
+        <li>Acompanhamento de metas mensais</li>
+        <li>Ideal para vendedores e MEI</li>
+      </ul>
+      <a href="#" class="btn-isca" onclick="abrirModal('vendas'); return false;">📥 Baixar Grátis</a>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL FINANCEIRO -->
+<div class="modal-overlay" id="modal-financeiro">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('financeiro')">✕</button>
+    <div id="form-financeiro">
+      <h3>💰 Planilha Financeira</h3>
+      <p>Preencha abaixo e receba a planilha grátis no seu e-mail. Você também receberá <span>dicas práticas de Excel</span> semanalmente.</p>
+      <input type="text" placeholder="Seu nome" id="nome-fin" required>
+      <input type="email" placeholder="Seu melhor e-mail" id="email-fin" required>
+      <button type="submit" onclick="enviarForm('financeiro')">QUERO MINHA PLANILHA GRÁTIS →</button>
+      <p class="modal-note">🔒 Sem spam. Você pode cancelar quando quiser.</p>
+    </div>
+    <div class="modal-success" id="success-financeiro">
+      <div class="check">✅</div>
+      <h4>Perfeito!</h4>
+      <p>Sua planilha de Controle Financeiro foi enviada para o seu e-mail. Verifique sua caixa de entrada (e o spam, só por garantia).</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL VENDAS -->
+<div class="modal-overlay" id="modal-vendas">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal('vendas')">✕</button>
+    <div id="form-vendas">
+      <h3>📈 Planilha de Vendas</h3>
+      <p>Preencha abaixo e receba a planilha grátis no seu e-mail. Você também receberá <span>dicas práticas de Excel</span> semanalmente.</p>
+      <input type="text" placeholder="Seu nome" id="nome-vend" required>
+      <input type="email" placeholder="Seu melhor e-mail" id="email-vend" required>
+      <button type="submit" onclick="enviarForm('vendas')">QUERO MINHA PLANILHA GRÁTIS →</button>
+      <p class="modal-note">🔒 Sem spam. Você pode cancelar quando quiser.</p>
+    </div>
+    <div class="modal-success" id="success-vendas">
+      <div class="check">✅</div>
+      <h4>Perfeito!</h4>
+      <p>Sua planilha de Controle de Vendas foi enviada para o seu e-mail. Verifique sua caixa de entrada (e o spam, só por garantia).</p>
+    </div>
+  </div>
+</div>
+
+<!-- E-BOOKS -->
+<section class="ebooks" id="ebooks">
+  <div class="ebooks-header">
+    <span class="section-label">📚 Biblioteca completa</span>
+    <h2 class="section-title">Escolha seu e-book</h2>
+    <p class="section-sub">Do básico ao avançado, para pessoa física ou MEI — cada livro é objetivo, direto e feito para quem quer resultado.</p>
+  </div>
+
+  <div class="ebooks-grid">
+
+    <!-- E-book 1 -->
+    <div class="ebook-card">
+      <div class="ebook-cover">
+        <span class="badge-disponivel">Amazon KDP</span>
+        <div class="ebook-cover-icon">📗</div>
+        <div class="ebook-cover-title">Excel para Iniciantes</div>
+        <div class="ebook-cover-sub">Aprenda a Criar Planilhas, Usar Fórmulas e Organizar sua Rotina</div>
+      </div>
+      <div class="ebook-body">
+        <div class="ebook-nivel">Nível: Iniciante</div>
+        <p class="ebook-desc">O ponto de partida ideal. Aprenda os fundamentos do Excel do zero, com exemplos práticos do dia a dia e sem enrolação.</p>
+        <div class="ebook-price">
+          <span class="currency">R$</span>
+          <span class="amount">19,90</span>
+          <span class="period">e-book</span>
+        </div>
+        <a href="https://www.amazon.com.br" target="_blank" class="btn-ebook">Comprar na Amazon →</a>
+      </div>
+    </div>
+
+    <!-- E-book 2 -->
+    <div class="ebook-card">
+      <div class="ebook-cover">
+        <span class="badge-disponivel">Amazon KDP</span>
+        <div class="ebook-cover-icon">📦</div>
+        <div class="ebook-cover-title">Controle de Estoque no Excel</div>
+        <div class="ebook-cover-sub">Planilha Completa com Alertas Automáticos</div>
+      </div>
+      <div class="ebook-body">
+        <div class="ebook-nivel">Nível: Intermediário</div>
+        <p class="ebook-desc">Controle seu estoque de forma profissional. Inclui planilha pronta com alertas automáticos de estoque mínimo.</p>
+        <div class="ebook-price">
+          <span class="currency">R$</span>
+          <span class="amount">24,90</span>
+          <span class="period">e-book</span>
+        </div>
+        <a href="https://www.amazon.com.br" target="_blank" class="btn-ebook">Comprar na Amazon →</a>
+      </div>
+    </div>
+
+    <!-- E-book 3 -->
+    <div class="ebook-card">
+      <div class="ebook-cover">
+        <span class="badge-breve">Em breve</span>
+        <div class="ebook-cover-icon">📊</div>
+        <div class="ebook-cover-title">Dashboards Profissionais no Excel</div>
+        <div class="ebook-cover-sub">Transforme dados em insights visuais de forma prática</div>
+      </div>
+      <div class="ebook-body">
+        <div class="ebook-nivel">Nível: Iniciante → Intermediário</div>
+        <p class="ebook-desc">Aprenda a criar dashboards impactantes que impressionam qualquer chefe ou cliente. Passo a passo, do zero.</p>
+        <div class="ebook-price">
+          <span class="currency">R$</span>
+          <span class="amount">24,90</span>
+          <span class="period">e-book</span>
+        </div>
+        <a href="#gratuito" class="btn-ebook">Avise-me quando sair →</a>
+      </div>
+    </div>
+
+    <!-- E-book 4 -->
+    <div class="ebook-card">
+      <div class="ebook-cover">
+        <span class="badge-breve">Em breve</span>
+        <div class="ebook-cover-icon">🏆</div>
+        <div class="ebook-cover-title">Controle de Vendas no Excel</div>
+        <div class="ebook-cover-sub">Organize vendas, acompanhe metas e calcule comissões</div>
+      </div>
+      <div class="ebook-body">
+        <div class="ebook-nivel">Nível: Iniciante → Intermediário</div>
+        <p class="ebook-desc">Para vendedores e gestores. Controle completo de metas, comissões e performance de equipe com planilhas prontas.</p>
+        <div class="ebook-price">
+          <span class="currency">R$</span>
+          <span class="amount">24,90</span>
+          <span class="period">e-book</span>
+        </div>
+        <a href="#gratuito" class="btn-ebook">Avise-me quando sair →</a>
+      </div>
+    </div>
+
+    <!-- E-book 5 -->
+    <div class="ebook-card">
+      <div class="ebook-cover">
+        <span class="badge-breve">Em breve</span>
+        <div class="ebook-cover-icon">💳</div>
+        <div class="ebook-cover-title">Controle Financeiro Pessoal no Excel</div>
+        <div class="ebook-cover-sub">Controle gastos, planeje orçamento e organize dívidas</div>
+      </div>
+      <div class="ebook-body">
+        <div class="ebook-nivel">Nível: Iniciante</div>
+        <p class="ebook-desc">Pare de perder dinheiro sem saber onde vai. Aprenda a montar seu orçamento, quitar dívidas e economizar de verdade.</p>
+        <div class="ebook-price">
+          <span class="currency">R$</span>
+          <span class="amount">19,90</span>
+          <span class="period">e-book</span>
+        </div>
+        <a href="#gratuito" class="btn-ebook">Avise-me quando sair →</a>
+      </div>
+    </div>
+
+    <!-- E-book 6 -->
+    <div class="ebook-card">
+      <div class="ebook-cover">
+        <span class="badge-breve">Em breve</span>
+        <div class="ebook-cover-icon">🏪</div>
+        <div class="ebook-cover-title">Excel para MEI</div>
+        <div class="ebook-cover-sub">Controle de Vendas, Caixa e Lucro de Forma Simples</div>
+      </div>
+      <div class="ebook-body">
+        <div class="ebook-nivel">Nível: Iniciante</div>
+        <p class="ebook-desc">Feito especialmente para o Microempreendedor Individual. Organize vendas, controle o caixa e descubra seu lucro real.</p>
+        <div class="ebook-price">
+          <span class="currency">R$</span>
+          <span class="amount">19,90</span>
+          <span class="period">e-book</span>
+        </div>
+        <a href="#gratuito" class="btn-ebook">Avise-me quando sair →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AUTOR -->
+<div class="autor-wrapper" id="autor">
+  <div class="autor" style="max-width:860px; margin:0 auto; display:grid; grid-template-columns: auto 1fr; gap:50px; align-items:center;">
+    <div class="autor-avatar">👨‍💼</div>
+    <div class="autor-content">
+      <span class="section-label">Quem escreve</span>
+      <h2>Luiz Paulo Gonçalves do Nascimento</h2>
+      <p>Apaixonado por Excel e por transformar planilhas em ferramentas que realmente funcionam no dia a dia das pessoas. Criei a <strong>Planilha Certa</strong> para levar conteúdo prático, sem enrolação, para quem quer organizar sua vida pessoal, profissional ou seu negócio usando o que já tem no computador. Todos os e-books são baseados em situações reais e escritos em português simples.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <span class="section-label">O que dizem os leitores</span>
+  <h2 class="section-title">Resultados reais</h2>
+
+  <div class="depo-grid">
+    <div class="depo-card">
+      <div class="stars">★★★★★</div>
+      <p>"Finalmente um livro de Excel que eu consegui entender. As fórmulas são explicadas de forma simples e já apliquei no trabalho na mesma semana."</p>
+      <div class="depo-name">Carla M.</div>
+      <div class="depo-cargo">Assistente administrativa</div>
+    </div>
+    <div class="depo-card">
+      <div class="stars">★★★★★</div>
+      <p>"A planilha de estoque salvou meu negócio. Agora sei exatamente quando repor produto sem precisar ficar contando manualmente."</p>
+      <div class="depo-name">Rafael S.</div>
+      <div class="depo-cargo">Dono de loja de material de construção</div>
+    </div>
+    <div class="depo-card">
+      <div class="stars">★★★★★</div>
+      <p>"Baixei a planilha gratuita e me surpreendi com a qualidade. Já comprei dois e-books depois disso. Vale muito o investimento."</p>
+      <div class="depo-name">Fernanda L.</div>
+      <div class="depo-cargo">MEI / Confeiteira</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div style="text-align:center; margin-bottom:40px;">
+    <span class="section-label">Dúvidas</span>
+    <h2 class="section-title">Perguntas frequentes</h2>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">Preciso ter experiência em Excel para usar os e-books?</div>
+    <div class="faq-answer">Não! Os e-books de nível iniciante foram escritos pensando em quem nunca abriu o Excel antes. Você aprenderá do zero, com explicações simples e exemplos práticos.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">As planilhas gratuitas já vêm prontas para usar?</div>
+    <div class="faq-answer">Sim! As planilhas são entregues já configuradas, com fórmulas e formatação prontas. Você só precisa inserir seus dados e elas já calculam tudo automaticamente.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">Em qual formato os e-books são entregues?</div>
+    <div class="faq-answer">Os e-books disponíveis na Amazon são entregues no formato Kindle (para leitura pelo app gratuito da Amazon, disponível para celular, tablet ou PC). Os demais serão entregues em PDF.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">Posso usar as planilhas no Excel do celular?</div>
+    <div class="faq-answer">Sim! As planilhas são compatíveis com o Excel do computador e com o Microsoft Excel para Android e iOS. Para uso básico, o app gratuito do celular já é suficiente.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">Os e-books "Em breve" têm data de lançamento?</div>
+    <div class="faq-answer">Estamos finalizando a publicação. Quem baixar as planilhas gratuitas será notificado por e-mail assim que cada título estiver disponível — geralmente com desconto de lançamento.</div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Comece agora, é grátis</h2>
+  <p>Baixe uma das planilhas gratuitas, experimente na prática e veja como o Excel pode simplificar sua vida ou seu negócio.</p>
+  <a href="#gratuito" class="btn-primary">📥 Quero Minha Planilha Grátis</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color:#fff;">Planilha Certa</strong> · por Luiz Paulo Gonçalves do Nascimento</p>
+  <p style="margin-top:8px;">
+    Contato: <a href="mailto:contato@planilhacerta.com.br">contato@planilhacerta.com.br</a>
+  </p>
+  <p style="margin-top:12px;">© 2025 Planilha Certa · Todos os direitos reservados</p>
+</footer>
+
+<script>
+  // Modal
+  function abrirModal(tipo) {
+    document.getElementById('modal-' + tipo).classList.add('open');
+  }
+
+  function fecharModal(tipo) {
+    document.getElementById('modal-' + tipo).classList.remove('open');
+  }
+
+  // Fechar clicando fora
+  document.querySelectorAll('.modal-overlay').forEach(el => {
+    el.addEventListener('click', function(e) {
+      if (e.target === el) el.classList.remove('open');
+    });
+  });
+
+  function enviarForm(tipo) {
+    var nomeId = tipo === 'financeiro' ? 'nome-fin' : 'nome-vend';
+    var emailId = tipo === 'financeiro' ? 'email-fin' : 'email-vend';
+    var nome = document.getElementById(nomeId).value.trim();
+    var email = document.getElementById(emailId).value.trim();
+
+    if (!nome || !email || !email.includes('@')) {
+      alert('Por favor, preencha seu nome e e-mail corretamente.');
+      return;
+    }
+
+    // Aqui você integra com Mailchimp, MailerLite, Brevo etc.
+    // Por ora, simula o sucesso:
+    document.getElementById('form-' + tipo).style.display = 'none';
+    document.getElementById('success-' + tipo).style.display = 'block';
+  }
+
+  // FAQ
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+
+  // Scroll suave
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
