@@ -893,6 +893,15 @@
   .hero-content { animation: fadeUp 0.6s ease both; }
   .hero-visual { animation: fadeUp 0.6s ease 0.2s both; }
 </style>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2280929');
+</script>
+<!-- End MailerLite Universal -->
 </head>
 <body>
 
@@ -1008,43 +1017,97 @@
   </div>
 </section>
 
-<!-- MODAL FINANCEIRO -->
-<div class="modal-overlay" id="modal-financeiro">
-  <div class="modal">
-    <button class="modal-close" onclick="fecharModal('financeiro')">✕</button>
-    <div id="form-financeiro">
-      <h3>💰 Planilha Financeira</h3>
-      <p>Preencha abaixo e receba a planilha grátis no seu e-mail. Você também receberá <span>dicas práticas de Excel</span> semanalmente.</p>
-      <input type="text" placeholder="Seu nome" id="nome-fin" required>
-      <input type="email" placeholder="Seu melhor e-mail" id="email-fin" required>
-      <button type="submit" onclick="enviarForm('financeiro')">QUERO MINHA PLANILHA GRÁTIS →</button>
-      <p class="modal-note">🔒 Sem spam. Você pode cancelar quando quiser.</p>
+<!-- MODAL FINANCEIRO (MailerLite) -->
+<div class="ml-modal-overlay" id="modal-financeiro">
+  <div class="ml-modal-box">
+    <button class="ml-modal-close" onclick="fecharModal('financeiro')">✕</button>
+    <div class="ml-modal-header">
+      <span class="modal-emoji">💰</span>
+      <h3>Controle Financeiro Grátis</h3>
+      <p>Digite seu e-mail e receba a planilha agora mesmo.</p>
     </div>
-    <div class="modal-success" id="success-financeiro">
-      <div class="check">✅</div>
-      <h4>Perfeito!</h4>
-      <p>Sua planilha de Controle Financeiro foi enviada para o seu e-mail. Verifique sua caixa de entrada (e o spam, só por garantia).</p>
+    <div id="mlb2-40176362" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-40176362">
+      <div class="ml-form-align-center">
+        <div class="ml-form-embedWrapper embedForm">
+          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+            <div class="ml-form-embedContent" style="display:none"></div>
+            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2280929/forms/185290193473898189/subscribe" data-code="" method="post" target="_blank">
+              <div class="ml-form-formContent">
+                <div class="ml-form-fieldRow ml-last-item">
+                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Seu melhor e-mail" autocomplete="email">
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" name="ml-submit" value="1">
+              <div class="ml-form-embedSubmit">
+                <button type="submit" class="primary">QUERO MINHA PLANILHA GRÁTIS →</button>
+                <button disabled="disabled" style="display:none;" type="button" class="loading">
+                  <div class="ml-form-embedSubmitLoad"></div>
+                  <span class="sr-only">Aguarde...</span>
+                </button>
+              </div>
+              <input type="hidden" name="anticsrf" value="true">
+            </form>
+          </div>
+          <div class="ml-form-successBody row-success" style="display:none">
+            <div class="ml-form-successContent" style="padding:20px 0; text-align:center;">
+              <p style="font-size:2rem; margin-bottom:8px;">✅</p>
+              <h4 style="font-family:'Barlow Condensed',sans-serif; font-size:1.6rem; color:#0d3d2b; text-transform:uppercase;">Enviado!</h4>
+              <p style="font-size:0.9rem; color:#666; margin-top:8px;">Verifique sua caixa de entrada (e o spam, só por garantia).</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <p class="ml-modal-privacy">🔒 Sem spam. Cancele quando quiser.</p>
   </div>
 </div>
 
-<!-- MODAL VENDAS -->
-<div class="modal-overlay" id="modal-vendas">
-  <div class="modal">
-    <button class="modal-close" onclick="fecharModal('vendas')">✕</button>
-    <div id="form-vendas">
-      <h3>📈 Planilha de Vendas</h3>
-      <p>Preencha abaixo e receba a planilha grátis no seu e-mail. Você também receberá <span>dicas práticas de Excel</span> semanalmente.</p>
-      <input type="text" placeholder="Seu nome" id="nome-vend" required>
-      <input type="email" placeholder="Seu melhor e-mail" id="email-vend" required>
-      <button type="submit" onclick="enviarForm('vendas')">QUERO MINHA PLANILHA GRÁTIS →</button>
-      <p class="modal-note">🔒 Sem spam. Você pode cancelar quando quiser.</p>
+<!-- MODAL VENDAS (MailerLite) -->
+<div class="ml-modal-overlay" id="modal-vendas">
+  <div class="ml-modal-box">
+    <button class="ml-modal-close" onclick="fecharModal('vendas')">✕</button>
+    <div class="ml-modal-header">
+      <span class="modal-emoji">📈</span>
+      <h3>Controle de Vendas Grátis</h3>
+      <p>Digite seu e-mail e receba a planilha agora mesmo.</p>
     </div>
-    <div class="modal-success" id="success-vendas">
-      <div class="check">✅</div>
-      <h4>Perfeito!</h4>
-      <p>Sua planilha de Controle de Vendas foi enviada para o seu e-mail. Verifique sua caixa de entrada (e o spam, só por garantia).</p>
+    <div id="mlb2-40176486" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-40176486">
+      <div class="ml-form-align-center">
+        <div class="ml-form-embedWrapper embedForm">
+          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+            <div class="ml-form-embedContent" style="display:none"></div>
+            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2280929/forms/185290517988247367/subscribe" data-code="" method="post" target="_blank">
+              <div class="ml-form-formContent">
+                <div class="ml-form-fieldRow ml-last-item">
+                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Seu melhor e-mail" autocomplete="email">
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" name="ml-submit" value="1">
+              <div class="ml-form-embedSubmit">
+                <button type="submit" class="primary">QUERO MINHA PLANILHA GRÁTIS →</button>
+                <button disabled="disabled" style="display:none;" type="button" class="loading">
+                  <div class="ml-form-embedSubmitLoad"></div>
+                  <span class="sr-only">Aguarde...</span>
+                </button>
+              </div>
+              <input type="hidden" name="anticsrf" value="true">
+            </form>
+          </div>
+          <div class="ml-form-successBody row-success" style="display:none">
+            <div class="ml-form-successContent" style="padding:20px 0; text-align:center;">
+              <p style="font-size:2rem; margin-bottom:8px;">✅</p>
+              <h4 style="font-family:'Barlow Condensed',sans-serif; font-size:1.6rem; color:#0d3d2b; text-transform:uppercase;">Enviado!</h4>
+              <p style="font-size:0.9rem; color:#666; margin-top:8px;">Verifique sua caixa de entrada (e o spam, só por garantia).</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <p class="ml-modal-privacy">🔒 Sem spam. Cancele quando quiser.</p>
   </div>
 </div>
 
@@ -1279,39 +1342,36 @@
   <p style="margin-top:12px;">© 2025 Planilha Certa · Todos os direitos reservados</p>
 </footer>
 
+<!-- MailerLite success callbacks -->
 <script>
-  // Modal
+  function ml_webform_success_40176362() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-40176362 .row-success').show();
+    $('.ml-subscribe-form-40176362 .row-form').hide();
+  }
+  function ml_webform_success_40176486() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-40176486 .row-success').show();
+    $('.ml-subscribe-form-40176486 .row-form').hide();
+  }
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+
+<script>
+  // Abrir/fechar modais
   function abrirModal(tipo) {
     document.getElementById('modal-' + tipo).classList.add('open');
   }
-
   function fecharModal(tipo) {
     document.getElementById('modal-' + tipo).classList.remove('open');
   }
 
-  // Fechar clicando fora
-  document.querySelectorAll('.modal-overlay').forEach(el => {
+  // Fechar clicando fora do box
+  document.querySelectorAll('.ml-modal-overlay').forEach(function(el) {
     el.addEventListener('click', function(e) {
       if (e.target === el) el.classList.remove('open');
     });
   });
-
-  function enviarForm(tipo) {
-    var nomeId = tipo === 'financeiro' ? 'nome-fin' : 'nome-vend';
-    var emailId = tipo === 'financeiro' ? 'email-fin' : 'email-vend';
-    var nome = document.getElementById(nomeId).value.trim();
-    var email = document.getElementById(emailId).value.trim();
-
-    if (!nome || !email || !email.includes('@')) {
-      alert('Por favor, preencha seu nome e e-mail corretamente.');
-      return;
-    }
-
-    // Aqui você integra com Mailchimp, MailerLite, Brevo etc.
-    // Por ora, simula o sucesso:
-    document.getElementById('form-' + tipo).style.display = 'none';
-    document.getElementById('success-' + tipo).style.display = 'block';
-  }
 
   // FAQ
   function toggleFaq(el) {
@@ -1319,7 +1379,7 @@
   }
 
   // Scroll suave
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
       var target = document.querySelector(this.getAttribute('href'));
       if (target) {
