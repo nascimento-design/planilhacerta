@@ -394,7 +394,72 @@
 
   .btn-isca:hover { background: var(--verde-claro); }
 
-  /* Modal CSS movido para ml-modal-overlay abaixo */
+  /* ====== MODAIS ====== */
+  .ml-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .ml-modal-overlay.open { display: flex; }
+
+  .ml-modal-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 32px 28px;
+    max-width: 460px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+
+  .ml-modal-header {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .ml-modal-header .modal-emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .ml-modal-header h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: #0d3d2b;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .ml-modal-header p {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .ml-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #aaa;
+    background: none;
+    border: none;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .ml-modal-close:hover { color: #333; background: #f0f0f0; }
 
   /* ====== EBOOKS ====== */
   .ebooks {
@@ -895,7 +960,7 @@
   <div class="ml-modal-box">
     <button class="ml-modal-close" onclick="fecharModal('financeiro')">✕</button>
     <div class="ml-modal-header">
-      <span class="modal-emoji">💰</span>
+      <span class="modal-emoji" style="font-size:2rem;">💰</span>
       <h3>Controle Financeiro Grátis</h3>
       <p>Digite seu e-mail e receba a planilha agora mesmo.</p>
     </div>
@@ -923,7 +988,7 @@
   <div class="ml-modal-box">
     <button class="ml-modal-close" onclick="fecharModal('vendas')">✕</button>
     <div class="ml-modal-header">
-      <span class="modal-emoji">📈</span>
+      <span class="modal-emoji" style="font-size:2rem;">📈</span>
       <h3>Controle de Vendas Grátis</h3>
       <p>Digite seu e-mail e receba a planilha agora mesmo.</p>
     </div>
